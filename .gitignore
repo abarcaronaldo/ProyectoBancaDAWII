@@ -1,0 +1,18 @@
+# ==========================================
+# 1. Archivos del Sistema y Carpetas de Compilación
+# ==========================================
+/build/
+/.gradle/
+/out/
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# 2. Configuraciones de IDEs
+# ==========================================
+# IntelliJ IDEA
+/.idea/
+*.iws
+*.iml
+*.ipr
+/out/
