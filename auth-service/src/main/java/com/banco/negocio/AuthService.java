@@ -18,23 +18,28 @@ import org.springframework.web.server.ResponseStatusException;
 public class AuthService {
 
 	private final JwtService jwtService;
+    private final UsuarioRepository usuarioRepository;
     private final AuthenticationManager authenticationManager;
 
 	public AuthService(
 			JwtService jwtService,
+            UsuarioRepository usuarioRepository,
             AuthenticationManager authenticationManager
 	) {
 		this.jwtService = jwtService;
+        this.usuarioRepository = usuarioRepository;
         this.authenticationManager = authenticationManager;
 	}
 
     public LoginResponse login(LoginRequest request) {
         try {
-            Authentication authentication = authenticationManager.authenticate(
+            authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.username(), request.password())
             );
 
-            Usuario user = (Usuario) authentication.getPrincipal();
+            Usuario user = usuarioRepository.findByUsername(request.username())
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Usuario no encontrado"));
+
             String token = jwtService.generateToken(user);
 
             return new LoginResponse(token, "Bearer", jwtService.getExpirationMinutes());

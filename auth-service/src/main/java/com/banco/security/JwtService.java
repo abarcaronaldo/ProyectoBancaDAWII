@@ -26,17 +26,18 @@ public class JwtService {
 		this.expirationMinutes = expirationMinutes;
 	}
 
-	public String generateToken(Usuario user) {
-		Instant now = Instant.now();
+    public String generateToken(Usuario user) {
+        Instant now = Instant.now();
 
-		return Jwts.builder()
-				.subject(user.getUsername())
-				.claim("userId", user.getId())
-				.issuedAt(Date.from(now))
-				.expiration(Date.from(now.plusSeconds(expirationMinutes * 60)))
-				.signWith(secretKey)
-				.compact();
-	}
+        return Jwts.builder()
+                .subject(user.getUsername())
+                .claim("userId", user.getId())
+                .claim("role", user.getRol().getNombre())
+                .issuedAt(Date.from(now))
+                .expiration(Date.from(now.plusSeconds(expirationMinutes * 60)))
+                .signWith(secretKey)
+                .compact();
+    }
 
 	public String extractUsername(String token) {
 		return parseClaims(token).getSubject();
