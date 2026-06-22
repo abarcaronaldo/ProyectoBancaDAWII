@@ -28,7 +28,7 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN', 'CLIENTE')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'CLIENTE')")
     public ResponseEntity<ClienteResponse> obtenerPorId(@PathVariable Long id) {
         return ResponseEntity.ok(clienteService.obtenerPorId(id));
     }

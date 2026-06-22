@@ -23,6 +23,15 @@ spring:
           uri: lb://account-service
           predicates:
             - Path=/api/cuentas/**
+          filters:
+            - AuthenticationFilter
+
+        - id: transaction-service
+          uri: lb://transaction-service
+          predicates:
+            - Path=/api/transacciones/**
+          filters:
+            - AuthenticationFilter
 
 eureka:
   client:

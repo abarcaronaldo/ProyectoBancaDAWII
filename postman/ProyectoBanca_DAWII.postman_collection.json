@@ -107,6 +107,176 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Aperturar cuenta",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/cuentas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "cuentas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar cuentas",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar cuenta por id",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar cuenta por id cliente",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar cuenta por numero cuenta",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar saldo cuenta (solo prueba)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/cuentas/1/saldo?monto=500",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "cuentas",
+            "1",
+            "saldo"
+          ],
+          "query": [
+            {
+              "key": "monto",
+              "value": "500"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Transferencia",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cuentaOrigen\": \"111122223333\",\r\n  \"cuentaDestino\": \"444455556666\",\r\n  \"monto\": 150.00\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transacciones/transferencia",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transacciones",
+            "transferencia"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deposito",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/transacciones/deposito",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transacciones",
+            "deposito"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Retiro",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cuenta\": \"444455556666\",\r\n  \"monto\": 50.00\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transacciones/retiro",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transacciones",
+            "retiro"
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "auth": {
