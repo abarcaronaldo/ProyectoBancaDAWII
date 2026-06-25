@@ -1,0 +1,76 @@
+<section class="bank-section">
+  <div class="section-header">
+    <h3>{{ esVistaCliente ? 'Detalles de mi cuenta' : 'Gestión de cuentas' }}</h3>
+  </div>
+
+  <div class="toolbar-card" *ngIf="!esVistaCliente">
+    <label class="search-field">
+      <span>Buscar por número de cuenta</span>
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Ej. 001-000123" />
+    </label>
+  </div>
+
+  <div class="account-detail-card" *ngIf="esVistaCliente && cuentaDetalle; else adminTable">
+    <div class="detail-header">
+      <span class="eyebrow">Estado de cuenta</span>
+      <h4>{{ cuentaDetalle.numeroCuenta }}</h4>
+      <p>Información bancaria actualizada según el estado del sistema.</p>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-item">
+        <span class="label">Saldo disponible</span>
+        <strong>{{ cuentaDetalle.saldo | currency:'PEN' }}</strong>
+      </div>
+      <div class="detail-item">
+        <span class="label">Tipo de cuenta</span>
+        <strong>{{ cuentaDetalle.tipoCuenta }}</strong>
+      </div>
+      <div class="detail-item">
+        <span class="label">Estado</span>
+        <strong>{{ cuentaDetalle.activo ? 'Activa' : 'Inactiva' }}</strong>
+      </div>
+      <div class="detail-item">
+        <span class="label">CCI</span>
+        <strong>{{ cuentaDetalle.cci || '—' }}</strong>
+      </div>
+      <div class="detail-item">
+        <span class="label">Cliente</span>
+        <strong>{{ cuentaDetalle.clienteId }}</strong>
+      </div>
+      <div class="detail-item">
+        <span class="label">Fecha de creación</span>
+        <strong>{{ cuentaDetalle.fechaCreacion | date:'dd/MM/yyyy' }}</strong>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #adminTable>
+    <div class="table-card" *ngIf="!esVistaCliente">
+      <table>
+        <thead>
+          <tr>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Saldo</th>
+            <th>Cliente</th>
+            <th>Estado</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cuenta of filteredCuentas">
+            <td>{{ cuenta.numeroCuenta }}</td>
+            <td>{{ cuenta.tipoCuenta }}</td>
+            <td>{{ cuenta.saldo | currency:'PEN' }}</td>
+            <td>{{ cuenta.clienteId }}</td>
+            <td>{{ cuenta.activo ? 'Activo' : 'Inactivo' }}</td>
+            <td>
+              <button class="secondary" (click)="alternarEstado(cuenta)">{{ cuenta.activo ? 'Desactivar' : 'Activar' }}</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+</section>

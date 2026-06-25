@@ -1,0 +1,62 @@
+<section class="bank-section">
+  <div class="section-header">
+    <h3>Operaciones bancarias</h3>
+  </div>
+
+  <div class="info-banner" *ngIf="rolUsuario === 'CLIENTE'">
+    Las transferencias entre cuentas están habilitadas para tu perfil. Depósitos y retiros quedan reservados para la ventanilla administrativa.
+  </div>
+
+  <div class="operations-grid" *ngIf="rolUsuario === 'ADMIN'">
+    <form class="form-card" (ngSubmit)="enviar()">
+      <h4>Depósito</h4>
+      <div class="field-row">
+        <label>Número de cuenta</label>
+        <input [(ngModel)]="deposito.cuenta" name="depositoCuenta" required />
+      </div>
+      <div class="field-row">
+        <label>Monto</label>
+        <input type="number" [(ngModel)]="deposito.monto" name="depositoMonto" required />
+      </div>
+      <div class="field-row">
+        <label>Descripción</label>
+        <input [(ngModel)]="deposito.descripcion" name="depositoDescripcion" />
+      </div>
+      <button class="primary" type="button" (click)="tipoOperacion='DEPOSITO'; enviar()">Registrar depósito</button>
+    </form>
+
+    <form class="form-card" (ngSubmit)="enviar()">
+      <h4>Retiro</h4>
+      <div class="field-row">
+        <label>Número de cuenta</label>
+        <input [(ngModel)]="retiro.cuenta" name="retiroCuenta" required />
+      </div>
+      <div class="field-row">
+        <label>Monto</label>
+        <input type="number" [(ngModel)]="retiro.monto" name="retiroMonto" required />
+      </div>
+      <div class="field-row">
+        <label>Descripción</label>
+        <input [(ngModel)]="retiro.descripcion" name="retiroDescripcion" />
+      </div>
+      <button class="primary" type="button" (click)="tipoOperacion='RETIRO'; enviar()">Registrar retiro</button>
+    </form>
+  </div>
+
+  <form class="form-card" *ngIf="rolUsuario === 'CLIENTE'" (ngSubmit)="enviar()">
+    <h4>Transferencia</h4>
+    <div class="field-row">
+      <label>Cuenta origen</label>
+      <input [(ngModel)]="transferencia.cuentaOrigen" name="cuentaOrigen" required />
+    </div>
+    <div class="field-row">
+      <label>Cuenta destino</label>
+      <input [(ngModel)]="transferencia.cuentaDestino" name="cuentaDestino" required />
+    </div>
+    <div class="field-row">
+      <label>Monto</label>
+      <input type="number" [(ngModel)]="monto" name="monto" required />
+    </div>
+    <button class="primary" type="submit">Enviar transferencia</button>
+  </form>
+</section>

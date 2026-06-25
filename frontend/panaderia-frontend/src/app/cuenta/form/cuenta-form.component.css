@@ -1,0 +1,7 @@
+.bank-section { display: flex; flex-direction: column; gap: 16px; }
+.section-header h3 { margin: 0; color: #0f172a; }
+.form-card { background: white; border-radius: 14px; padding: 16px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); display: grid; gap: 12px; max-width: 560px; }
+.field-row { display: flex; flex-direction: column; gap: 6px; }
+.field-row label { font-weight: 600; color: #334155; }
+.field-row input, .field-row select { padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; }
+.primary { border: none; border-radius: 8px; padding: 10px 14px; cursor: pointer; background: #2563eb; color: white; width: fit-content; }

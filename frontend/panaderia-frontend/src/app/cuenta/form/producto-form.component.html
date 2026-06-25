@@ -1,0 +1,32 @@
+<div class="form-container">
+  <div class="form-card">
+    <h2>{{ productoId ? 'Editar Producto' : 'Nuevo Producto' }}</h2>
+
+    <form (ngSubmit)="guardar()">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" [(ngModel)]="producto.nombre" name="nombre" required />
+      </div>
+
+      <div class="form-group">
+        <label>Tipo:</label>
+        <input type="text" [(ngModel)]="producto.tipo" name="tipo" required />
+      </div>
+
+      <div class="form-group">
+        <label>Stock:</label>
+        <input type="number" [(ngModel)]="producto.stock" name="stock" required />
+      </div>
+
+      <div class="form-group">
+        <label>Precio:</label>
+        <input type="number" [(ngModel)]="producto.precio" name="precio" step="0.01" required />
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ productoId ? 'Actualizar' : 'Crear' }}</button>
+        <button type="button" class="btn btn-secondary" (click)="irAProductos()">Regresar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<section class="bank-section">
+  <div class="section-header">
+    <h3>Nueva cuenta bancaria</h3>
+  </div>
+
+  <form class="form-card" (ngSubmit)="guardar()">
+    <div class="field-row">
+      <label>ID del cliente</label>
+      <input type="number" [(ngModel)]="cuenta.clienteId" name="clienteId" required />
+    </div>
+
+    <div class="field-row">
+      <label>Tipo de cuenta</label>
+      <select [(ngModel)]="cuenta.tipoCuenta" name="tipoCuenta">
+        <option value="AHORROS">Ahorros</option>
+        <option value="CORRIENTE">Corriente</option>
+      </select>
+    </div>
+
+    <button class="primary" type="submit">Crear cuenta</button>
+  </form>
+</section>

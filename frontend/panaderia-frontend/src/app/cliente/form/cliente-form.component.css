@@ -1,0 +1,15 @@
+.bank-section { display: flex; flex-direction: column; gap: 16px; }
+.section-header h3 { margin: 0; color: #0f172a; }
+.profile-card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); max-width: 720px; }
+.profile-header h4 { margin: 0 0 4px; color: #0f172a; }
+.profile-header p { margin: 0; color: #64748b; }
+.info-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
+.info-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+.label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: #64748b; font-weight: 700; }
+.value { color: #0f172a; font-weight: 600; }
+.form-card { background: white; border-radius: 14px; padding: 16px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); display: grid; gap: 12px; max-width: 560px; }
+.field-row { display: flex; flex-direction: column; gap: 6px; }
+.field-row label { font-weight: 600; color: #334155; }
+.field-row input { padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; }
+.primary { border: none; border-radius: 8px; padding: 10px 14px; cursor: pointer; background: #2563eb; color: white; width: fit-content; }
+@media (max-width: 700px) { .info-grid { grid-template-columns: 1fr; } }

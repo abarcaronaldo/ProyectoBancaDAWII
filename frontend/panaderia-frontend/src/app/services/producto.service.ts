@@ -1,0 +1,35 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Producto } from '../models/producto.model';
+import { environment } from '../../environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductoService {
+
+  private apiUrl = `${environment.apiUrl}/productos`;
+
+  constructor(private http: HttpClient) {}
+
+  //listar producto
+  listar(): Observable<Producto[]> {
+    return this.http.get<Producto[]>(this.apiUrl);
+  }
+
+  //crear producto
+  crear(producto: Producto): Observable<Producto> {
+    return this.http.post<Producto>(this.apiUrl, producto);
+  }
+
+  //actualizar producto
+  actualizar(id: number, producto: Producto): Observable<Producto> {
+    return this.http.put<Producto>(`${this.apiUrl}/${id}`, producto);
+  }
+
+  //eliminar producto
+  eliminar(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+}

@@ -1,0 +1,45 @@
+<section class="bank-section">
+    <div class="section-header">
+        <h3>Reportes y historial</h3>
+    </div>
+
+    <div class="toolbar-card">
+        <div class="search-field">
+            <label>Fecha Inicio</label>
+            <input type="date" [(ngModel)]="fechaInicio" />
+        </div>
+        <div class="search-field">
+            <label>Fecha Fin</label>
+            <input type="date" [(ngModel)]="fechaFin" />
+        </div>
+        <button class="primary" (click)="buscar()">Buscar</button>
+    </div>
+
+    <div class="table-card">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Monto</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tx of movimientos">
+                    <td>{{ tx.id }}</td>
+                    <td>{{ tx.cuentaOrigen || '-' }}</td>
+                    <td>{{ tx.cuentaDestino || '-' }}</td>
+                    <td>{{ tx.monto | currency:'PEN' }}</td>
+                    <td>{{ tx.tipo }}</td>
+                    <td>{{ tx.estado }}</td>
+                </tr>
+                <tr *ngIf="movimientos.length === 0">
+                    <td colspan="6" class="empty-state">No se encontraron movimientos</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

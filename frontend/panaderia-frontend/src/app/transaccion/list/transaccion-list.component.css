@@ -1,0 +1,5 @@
+.bank-section { display: flex; flex-direction: column; gap: 16px; }
+.section-header h3 { margin: 0; color: #0f172a; }
+.table-card { background: white; border-radius: 14px; padding: 16px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }

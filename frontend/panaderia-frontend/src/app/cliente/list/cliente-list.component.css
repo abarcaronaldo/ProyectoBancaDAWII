@@ -1,0 +1,14 @@
+.bank-section { display: flex; flex-direction: column; gap: 16px; }
+.section-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.section-header h3 { margin: 0; color: #0f172a; }
+.toolbar-card { background: white; border-radius: 14px; padding: 14px 16px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); }
+.search-field { display: flex; flex-direction: column; gap: 6px; font-weight: 600; color: #334155; }
+.search-field input { border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 12px; }
+.table-card { background: white; border-radius: 14px; padding: 16px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+.actions-cell { display: flex; gap: 8px; flex-wrap: wrap; }
+.primary, .secondary, .danger { border: none; border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+.primary { background: #2563eb; color: white; }
+.secondary { background: #e2e8f0; color: #0f172a; }
+.danger { background: #dc2626; color: white; }

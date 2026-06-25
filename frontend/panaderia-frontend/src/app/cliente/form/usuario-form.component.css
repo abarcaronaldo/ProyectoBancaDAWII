@@ -1,0 +1,96 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.form-card {
+  background-color: #fff8f0;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-card h2 {
+  color: #d2691e;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #8b4513;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #f8b500;
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+
+.form-group select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: #f8b500;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #e09e00;
+}
+
+.btn-secondary {
+  background-color: #d2691e;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #a0522d;
+}

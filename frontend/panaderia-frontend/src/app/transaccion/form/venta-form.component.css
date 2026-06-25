@@ -1,0 +1,130 @@
+/* Contenedor principal */
+.venta-form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Tarjeta */
+.venta-card {
+  background-color: #fff8f0;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.venta-card h2 {
+  text-align: center;
+  color: #d2691e;
+  margin-bottom: 25px;
+}
+
+/* Formularios */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  color: #8b4513;
+  font-weight: 500;
+}
+
+.form-control {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.form-control:focus {
+  border-color: #f8b500;
+  outline: none;
+}
+
+/* Total */
+.form-control.total {
+  background-color: #fff3e0;
+  font-weight: bold;
+  color: #d2691e;
+}
+
+/* Autocomplete */
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  background-color: #ffffff;
+  max-height: 180px;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+.suggestion-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  transition: background 0.3s;
+}
+
+.suggestion-item:hover {
+  background-color: #ffe0b3;
+}
+
+.suggestion-item .precio {
+  font-weight: bold;
+  color: #d2691e;
+}
+
+/* Botones */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.btn {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #f8b500;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #e09e00;
+}
+
+.btn-primary:disabled {
+  background-color: #e0c97a;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: #d2691e;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #a0522d;
+}

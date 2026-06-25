@@ -1,0 +1,31 @@
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Banco Digital</h2>
+      <p>Administración</p>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li (click)="irAClientes()">Mantenimiento de clientes</li>
+        <li (click)="irACuentas()">Gestión de cuentas</li>
+        <li (click)="irATransacciones()">Operaciones de ventanilla</li>
+        <li (click)="irAReporte()">Reportes</li>
+        <li (click)="logout()">Cerrar sesión</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="panel-header">
+      <h2>¡Bienvenido, {{ usuario?.email }}!</h2>
+      <p>Panel ejecutivo para supervisar clientes, cuentas y operaciones bancarias.</p>
+    </div>
+
+    <div class="stats-card-mini">
+      <h3>Operaciones</h3>
+      <p>Ventanilla y mantenimiento activo</p>
+    </div>
+
+    <router-outlet></router-outlet>
+  </main>
+</div>

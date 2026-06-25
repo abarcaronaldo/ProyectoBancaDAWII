@@ -1,0 +1,42 @@
+<section class="bank-section">
+  <div class="section-header">
+    <h3>Operaciones de ventanilla</h3>
+    <p>Registre depósitos y retiros de forma rápida para una cuenta bancaria.</p>
+  </div>
+
+  <div class="operations-grid">
+    <form class="form-card" (ngSubmit)="$event.preventDefault(); registrarDeposito()">
+      <h4>Depósito</h4>
+      <div class="field-row">
+        <label>Número de cuenta</label>
+        <input [(ngModel)]="deposito.cuenta" name="depositoCuenta" required />
+      </div>
+      <div class="field-row">
+        <label>Monto</label>
+        <input type="number" [(ngModel)]="deposito.monto" name="depositoMonto" required />
+      </div>
+      <div class="field-row">
+        <label>Descripción</label>
+        <input [(ngModel)]="deposito.descripcion" name="depositoDescripcion" />
+      </div>
+      <button class="primary" type="submit">Registrar depósito</button>
+    </form>
+
+    <form class="form-card" (ngSubmit)="$event.preventDefault(); registrarRetiro()">
+      <h4>Retiro</h4>
+      <div class="field-row">
+        <label>Número de cuenta</label>
+        <input [(ngModel)]="retiro.cuenta" name="retiroCuenta" required />
+      </div>
+      <div class="field-row">
+        <label>Monto</label>
+        <input type="number" [(ngModel)]="retiro.monto" name="retiroMonto" required />
+      </div>
+      <div class="field-row">
+        <label>Descripción</label>
+        <input [(ngModel)]="retiro.descripcion" name="retiroDescripcion" />
+      </div>
+      <button class="primary" type="submit">Registrar retiro</button>
+    </form>
+  </div>
+</section>

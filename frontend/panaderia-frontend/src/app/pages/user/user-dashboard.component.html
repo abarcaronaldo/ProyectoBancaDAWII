@@ -1,0 +1,77 @@
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Mi banca</h2>
+      <p>Cliente</p>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li (click)="irAMiPerfil()">Mi perfil</li>
+        <li (click)="irAMisCuentas()">Detalles de mi cuenta</li>
+        <li (click)="irATransferencias()">Transferencias</li>
+        <li (click)="logout()">Cerrar sesión</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="panel-header">
+      <h2>¡Bienvenido, {{ cliente?.nombre || usuario?.email || 'cliente' }}!</h2>
+      <p>Gestiona tu perfil, tus cuentas y tus transferencias de forma segura.</p>
+    </div>
+
+    <section class="welcome-grid">
+      <article class="hero-card">
+        <div>
+          <span class="eyebrow">Panel principal</span>
+          <h3>Tu experiencia bancaria, lista para operar</h3>
+          <p>Revisa tus datos personales y mantén tus cuentas al día desde una sola vista.</p>
+        </div>
+        <div class="hero-badge">Cliente activo</div>
+      </article>
+
+      <article class="summary-card">
+        <h4>Resumen personal</h4>
+        <div class="info-grid">
+          <div>
+            <span>DNI</span>
+            <strong>{{ cliente?.dni || '—' }}</strong>
+          </div>
+          <div>
+            <span>Email</span>
+            <strong>{{ cliente?.email || usuario?.email || '—' }}</strong>
+          </div>
+          <div>
+            <span>Teléfono</span>
+            <strong>{{ cliente?.telefono || '—' }}</strong>
+          </div>
+          <div>
+            <span>Dirección</span>
+            <strong>{{ cliente?.direccion || '—' }}</strong>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="accounts-card">
+      <div class="accounts-header">
+        <h3>Cuentas activas</h3>
+        <span>Saldo disponible</span>
+      </div>
+      <div class="account-list" *ngIf="cuentas.length; else emptyState">
+        <article class="account-item" *ngFor="let cuenta of cuentas">
+          <div>
+            <h4>{{ cuenta.numeroCuenta }}</h4>
+            <p>{{ cuenta.tipoCuenta }}</p>
+          </div>
+          <strong>{{ cuenta.saldo | currency:'PEN' }}</strong>
+        </article>
+      </div>
+      <ng-template #emptyState>
+        <p class="empty-state">Aún no tienes cuentas registradas.</p>
+      </ng-template>
+    </section>
+
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,32 @@
+<!-- usuarios.component.html -->
+<div class="productos-container">
+  <div class="productos-header">
+    <h2>Usuarios del sistema</h2>
+    <button class="btn btn-primary" (click)="crear()">Nuevo Usuario</button>
+  </div>
+
+  <table class="productos-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.email}}</td>
+        <td>••••••••</td>
+        <td>{{ usuario.rol === 2 ? 'Administrador' : 'Usuario' }}</td>
+
+        <td>
+          <button class="btn btn-edit" (click)="editar(usuario)">Editar</button>
+          <button class="btn btn-delete" (click)="eliminar(usuario.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

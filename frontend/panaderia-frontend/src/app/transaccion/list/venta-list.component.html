@@ -1,0 +1,38 @@
+<!-- productos.component.html -->
+<div class="productos-container">
+  <div class="productos-header">
+    <h2>Ventas realizadas</h2>
+    <button class="btn btn-primary" (click)="crear()">Nueva Venta</button>
+  </div>
+
+  <table class="productos-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Fecha</th>
+        <th>Cliente</th>
+        <th>Producto</th>
+        <th>Tipo</th>
+        <th *ngIf="isAdmin">Vendedor</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let venta of ventas">
+        <td>{{venta.id}}</td>
+        <td>{{venta.fecha}}</td>
+        <td>{{venta.cliente}}</td>
+        <td>{{venta.nombreProducto}}</td>
+        <td>{{venta.tipoProducto}}</td>
+        <td *ngIf="isAdmin">{{venta.usuario}}</td>
+        <td>{{venta.cantidad}}</td>
+        <td>{{venta.total | currency:'S/'}}</td>
+        <td>
+          <button class="btn btn-delete" (click)="eliminar(venta.id)">Anular</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

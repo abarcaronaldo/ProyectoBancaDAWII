@@ -1,0 +1,33 @@
+<!-- productos.component.html -->
+<div class="productos-container">
+  <div class="productos-header">
+    <h2>Productos</h2>
+    <button *ngIf="isAdmin" class="btn btn-primary" (click)="crear()">Nuevo Producto</button>
+  </div>
+
+  <table class="productos-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Stock</th>
+        <th>Precio</th>
+        <th *ngIf="isAdmin">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{producto.id}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.tipo}}</td>
+        <td>{{producto.stock}}</td>
+        <td>{{producto.precio | currency:'S/'}}</td>
+        <td *ngIf="isAdmin">
+          <button class="btn btn-edit" (click)="editar(producto)">Editar</button>
+          <button class="btn btn-delete" (click)="eliminar(producto.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

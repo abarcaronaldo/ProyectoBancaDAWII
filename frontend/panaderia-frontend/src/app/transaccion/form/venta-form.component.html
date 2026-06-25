@@ -1,0 +1,74 @@
+<div class="venta-form-container">
+  <div class="venta-card">
+    <h2>Registrar Venta</h2>
+
+    <div class="form-group autocomplete">
+      <label for="producto">Producto</label>
+      <input
+        type="text"
+        id="producto"
+        [(ngModel)]="productoNombre"
+        (input)="filtrarProductos()"
+        (blur)="productosFiltrados = []"
+        placeholder="Escribe el nombre del producto"
+        class="form-control"
+      />
+
+    <ul *ngIf="productosFiltrados.length > 0" class="suggestions-list">
+    <li
+        *ngFor="let p of productosFiltrados"
+        (mousedown)="seleccionarProducto(p)"
+        class="suggestion-item">
+        <span>{{ p.nombre }}</span>
+        <span class="precio">S/ {{ p.precio }}</span>
+    </li>
+</ul>
+</div>
+
+      <div class="form-group">
+      <label for="cliente">Cliente</label>
+      <input
+        type="text"
+        id="cliente"
+        [(ngModel)]="cliente"
+        placeholder="Nombre del cliente"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="cantidad">Cantidad</label>
+      <input
+        type="number"
+        id="cantidad"
+        [(ngModel)]="cantidad"
+        min="1"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Total</label>
+      <input
+        type="text"
+        [value]="productoSeleccionado ? (productoSeleccionado.precio * cantidad) : 0"
+        readonly
+        class="form-control total"
+      />
+    </div>
+
+    <div class="form-actions">
+      <button
+        (click)="realizarVenta()"
+        [disabled]="!productoSeleccionado || cantidad < 1"
+        class="btn btn-primary"
+      >
+        Vender
+      </button>
+
+      <a [routerLink]="[volverRuta]" class="btn btn-secondary">
+      Volver
+      </a>
+    </div>
+  </div>
+</div>
