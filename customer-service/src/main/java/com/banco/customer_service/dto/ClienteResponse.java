@@ -2,6 +2,7 @@ package com.banco.customer_service.dto;
 
 import java.time.LocalDateTime;
 
+
 public record ClienteResponse(
         Long id,
         String dni,

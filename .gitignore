@@ -15,3 +15,17 @@ Thumbs.db
 *.iws
 *.iml
 *.ipr
+
+# ==========================================
+# Configuración para el Frontend (Angular)
+# ==========================================
+
+# Ignora node_modules en cualquier carpeta del proyecto
+**/node_modules/
+
+# Ignora la carpeta de compilación de Angular
+**/dist/
+**/.angular/
+
+# Archivos de configuración local del editor
+**/.vscode/

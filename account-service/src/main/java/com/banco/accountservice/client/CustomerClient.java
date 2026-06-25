@@ -9,4 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface CustomerClient {
     @GetMapping("/api/clientes/{id}")
     ClienteDTO obtenerClientePorId(@PathVariable("id") Long id);
+
+    @GetMapping("/api/clientes/dni/{dni}")
+    ClienteDTO obtenerClientePorDni(@PathVariable("dni") String dni);
 }

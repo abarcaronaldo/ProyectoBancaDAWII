@@ -7,10 +7,14 @@ import com.banco.accountservice.dto.CuentaResponse;
 import com.banco.accountservice.entity.Cuenta;
 import com.banco.accountservice.repository.CuentaRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
+import java.security.Principal;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -70,8 +74,14 @@ public class CuentaServiceImpl implements CuentaService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<CuentaResponse> obtenerPorClienteId(Long clienteId) {
-        return cuentaRepository.findByClienteId(clienteId).stream()
+    public List<CuentaResponse> obtenerCuentaUsuarioLogueado(Principal principal) {
+
+        String dniUsuarioLogueado = principal.getName();
+
+        ClienteDTO cliente = customerClient.obtenerClientePorDni(dniUsuarioLogueado);
+
+        Long clienteIdReal = cliente.id();
+        return cuentaRepository.findByClienteId(clienteIdReal).stream()
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());
     }

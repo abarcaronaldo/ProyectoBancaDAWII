@@ -34,7 +34,7 @@ public class ClienteController {
     }
 
     @GetMapping("/dni/{dni}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'CLIENTE')")
     public ResponseEntity<ClienteResponse> obtenerPorDni(@PathVariable String dni) {
         return ResponseEntity.ok(clienteService.obtenerPorDni(dni));
     }

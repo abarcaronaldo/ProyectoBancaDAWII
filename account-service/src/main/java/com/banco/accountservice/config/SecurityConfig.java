@@ -23,15 +23,14 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/api/cuentas").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/api/cuentas").hasRole("ADMIN")
+                                .requestMatchers("/api/cuentas/cliente").hasAnyRole("ADMIN", "CLIENTE")
+                                .requestMatchers("/api/cuentas/numero/{numeroCuenta}").hasAnyRole("ADMIN", "CLIENTE")
+                                .requestMatchers(HttpMethod.PATCH, "/api/cuentas/{id}/estado").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/cuentas/{id}/saldo").hasRole("ADMIN")
+                                .requestMatchers("/api/cuentas/{id}").hasAnyRole("ADMIN", "CLIENTE")
 
-                        .requestMatchers("/api/cuentas/{id}").hasAnyRole("ADMIN", "CLIENTE")
-                        .requestMatchers("/api/cuentas/clienteId/**").hasAnyRole("ADMIN", "CLIENTE")
-                        .requestMatchers(HttpMethod.PATCH, "/api/cuentas/{id}/estado").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/api/cuentas/{id}/saldo").hasRole("ADMIN")
-                        .requestMatchers("/api/cuentas/numero/{numeroCuenta}").hasAnyRole("ADMIN", "CLIENTE")
-
+                                .requestMatchers(HttpMethod.POST, "/api/cuentas").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/api/cuentas").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

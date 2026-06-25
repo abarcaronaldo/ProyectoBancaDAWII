@@ -3,13 +3,14 @@ package com.banco.accountservice.service;
 import com.banco.accountservice.dto.CuentaCreateRequest;
 import com.banco.accountservice.dto.CuentaResponse;
 
+import java.security.Principal;
 import java.util.List;
 
 public interface CuentaService {
     CuentaResponse crearCuenta(CuentaCreateRequest request);
     List<CuentaResponse> listarCuentas();
     CuentaResponse obtenerPorId(Long id);
-    List<CuentaResponse> obtenerPorClienteId(Long clienteId);
+    List<CuentaResponse> obtenerCuentaUsuarioLogueado(Principal principal);
     CuentaResponse obtenerPorNumeroCuenta(String numeroCuenta);
 
     //extra

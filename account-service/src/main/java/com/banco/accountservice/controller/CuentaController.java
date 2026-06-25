@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -31,9 +32,9 @@ public class CuentaController {
         return ResponseEntity.ok(cuentaService.obtenerPorId(id));
     }
 
-    @GetMapping("/cliente/{clienteId}")
-    public ResponseEntity<List<CuentaResponse>> obtenerPorClienteId(@PathVariable Long clienteId) {
-        return ResponseEntity.ok(cuentaService.obtenerPorClienteId(clienteId));
+    @GetMapping("/cliente")
+    public ResponseEntity<List<CuentaResponse>> obtenerPorClienteId(Principal principal) {
+        return ResponseEntity.ok(cuentaService.obtenerCuentaUsuarioLogueado(principal));
     }
 
     @GetMapping("/numero/{numeroCuenta}")
