@@ -40,8 +40,12 @@ public class AuthService {
             Usuario user = usuarioRepository.findByUsername(request.username())
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Usuario no encontrado"));
 
-            String token = jwtService.generateToken(user);
+            if (!user.isActivo()) {
+                throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,
+                        "Su cuenta aún no ha sido activada. Por favor, establezca su contraseña primero.");
+            }
 
+            String token = jwtService.generateToken(user);
             return new LoginResponse(token, "Bearer", jwtService.getExpirationMinutes());
 
         } catch (AuthenticationException e) {

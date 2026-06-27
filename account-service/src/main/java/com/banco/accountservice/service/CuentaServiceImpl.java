@@ -87,6 +87,25 @@ public class CuentaServiceImpl implements CuentaService{
     }
 
     @Override
+    public List<CuentaResponse> obtenerCuentasPorDniCliente(String dni) {
+
+        ClienteDTO cliente = customerClient.obtenerClientePorDni(dni);
+
+        if (cliente == null) {
+            throw new RuntimeException("No existe un cliente registrado con el DNI: " + dni);
+        }
+
+        List<Cuenta> cuentas = cuentaRepository.findByClienteId(cliente.id());
+        if (cuentas.isEmpty()) {
+            throw new RuntimeException("El cliente no tiene cuentas bancarias asignadas.");
+        }
+
+        return cuentas.stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public CuentaResponse obtenerPorNumeroCuenta(String numeroCuenta) {
         Cuenta cuenta = cuentaRepository.findByNumeroCuenta(numeroCuenta)

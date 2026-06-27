@@ -21,7 +21,7 @@ public class Usuario {
     @Column(unique = true, nullable = false, length = 20)
     private String username;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = true, length = 255)
     private String password;
 
     @Column(unique = true, nullable = false, length = 100)
@@ -30,4 +30,10 @@ public class Usuario {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rol_id", nullable = false)
     private Rol rol;
+
+    @Column(name = "token_activacion")
+    private String tokenActivacion;
+
+    @Column(name = "activo")
+    private boolean activo = false;
 }

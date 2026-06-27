@@ -4,6 +4,7 @@ import com.banco.customer_service.client.AuthClient;
 import com.banco.customer_service.dto.ClienteRequest;
 import com.banco.customer_service.dto.ClienteResponse;
 import com.banco.customer_service.dto.UserRequest;
+import com.banco.customer_service.dto.UserResponse;
 import com.banco.customer_service.entity.Cliente;
 import com.banco.customer_service.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
@@ -40,25 +41,28 @@ public class ClienteServiceImpl implements ClienteService{
                 .email(request.email())
                 .telefono(request.telefono())
                 .direccion(request.direccion())
+                .activo(true)
                 .build();
+
         Cliente clienteGuardado = clienteRepository.save(cliente);
 
+        String tokenGenerado = null;
         try {
             UserRequest userRequest = new UserRequest(
                     clienteGuardado.getDni(),
                     clienteGuardado.getEmail(),
-                    clienteGuardado.getDni(),
                     2L
             );
 
-            authClient.registrarUsuarioBanco(userRequest);
+            UserResponse userResponse = authClient.registrarUsuarioBanco(userRequest);
+            tokenGenerado = userResponse.tokenActivacion();
 
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
-                    "Cliente no registrado. Falló la comunicación con el servicio: " + e.getMessage());
+                    "Cliente no registrado. Falló la comunicación con el servicio de autenticación: " + e.getMessage());
         }
 
-        return mapToResponse(clienteGuardado);
+        return mapToResponse(clienteGuardado, tokenGenerado);
     }
 
     @Override
@@ -122,7 +126,23 @@ public class ClienteServiceImpl implements ClienteService{
                 cliente.getTelefono(),
                 cliente.getDireccion(),
                 cliente.getCreadoEn(),
-                cliente.getActivo()
+                cliente.getActivo(),
+                null
+        );
+    }
+
+    private ClienteResponse mapToResponse(Cliente cliente, String token) {
+        return new ClienteResponse(
+                cliente.getId(),
+                cliente.getDni(),
+                cliente.getNombre(),
+                cliente.getApellido(),
+                cliente.getEmail(),
+                cliente.getTelefono(),
+                cliente.getDireccion(),
+                cliente.getCreadoEn(),
+                cliente.getActivo(),
+                token
         );
     }
 }

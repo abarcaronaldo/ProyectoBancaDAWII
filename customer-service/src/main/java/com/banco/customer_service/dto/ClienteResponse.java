@@ -12,6 +12,7 @@ public record ClienteResponse(
         String telefono,
         String direccion,
         LocalDateTime creadoEn,
-        Boolean activo
+        Boolean activo,
+        String tokenActivacionDigital
 ) {
 }

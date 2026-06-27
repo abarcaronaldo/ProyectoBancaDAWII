@@ -7,276 +7,545 @@
   },
   "item": [
     {
-      "name": "Login",
-      "request": {
-        "auth": {
-          "type": "noauth"
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "1. Auth",
+      "item": [
+        {
+          "name": "Login admin",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
             }
+          },
+          "response": []
+        },
+        {
+          "name": "Login cliente",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login (fallo)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
           }
         },
-        "url": {
-          "raw": "http://localhost:8080/api/auth/login",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "auth",
-            "login"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Listado clientes",
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6MSwiaWF0IjoxNzgxODIyMTIwLCJleHAiOjE3ODE4MjU3MjB9.tFsjIGeZ0ebKFqcUIZZFi2-MA2Fr0akdHtuwGOZ1kZUiC5NkdE0jPIOEUlOF-jF7Z0XnCSqbWphaJJPqg_3meg",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/api/clientes",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "clientes"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Crear cliente",
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6MSwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3ODE4MjQxOTUsImV4cCI6MTc4MTgyNzc5NX0.FBDpf4tE16qVhZ5Iog0SKVN1HkvK5TCVkDYrthbmAs1n9aHGNaw_ieCU5vcboVSo_jpVc8stafK-gkBXreiG6Q",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"dni\": \"70605040\",\r\n  \"nombre\": \"Carlos\",\r\n  \"apellido\": \"Mendoza\",\r\n  \"email\": \"carlos.mendoza@mail.com\",\r\n  \"telefono\": \"987654321\",\r\n  \"direccion\": \"Calle Los Claveles 456\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
           }
-        },
-        "url": {
-          "raw": "http://localhost:8080/api/clientes",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "clientes"
-          ]
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "Aperturar cuenta",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "Usuarios (app)",
+      "item": [
+        {
+          "name": "Listado de usuarios",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Cliente",
+      "item": [
+        {
+          "name": "Listado clientes (admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6MSwiaWF0IjoxNzgxODIyMTIwLCJleHAiOjE3ODE4MjU3MjB9.tFsjIGeZ0ebKFqcUIZZFi2-MA2Fr0akdHtuwGOZ1kZUiC5NkdE0jPIOEUlOF-jF7Z0XnCSqbWphaJJPqg_3meg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/clientes",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "clientes"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:8080/api/cuentas",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "cuentas"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Listar cuentas",
-      "request": {
-        "method": "GET",
-        "header": []
-      },
-      "response": []
-    },
-    {
-      "name": "Buscar cuenta por id",
-      "request": {
-        "method": "GET",
-        "header": []
-      },
-      "response": []
-    },
-    {
-      "name": "Buscar cuenta por id cliente",
-      "request": {
-        "method": "GET",
-        "header": []
-      },
-      "response": []
-    },
-    {
-      "name": "Buscar cuenta por numero cuenta",
-      "request": {
-        "method": "GET",
-        "header": []
-      },
-      "response": []
-    },
-    {
-      "name": "Actualizar saldo cuenta (solo prueba)",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/api/cuentas/1/saldo?monto=500",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "cuentas",
-            "1",
-            "saldo"
-          ],
-          "query": [
-            {
-              "key": "monto",
-              "value": "500"
+        {
+          "name": "Crear cliente (admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6MSwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3ODE4MjQxOTUsImV4cCI6MTc4MTgyNzc5NX0.FBDpf4tE16qVhZ5Iog0SKVN1HkvK5TCVkDYrthbmAs1n9aHGNaw_ieCU5vcboVSo_jpVc8stafK-gkBXreiG6Q",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"dni\": \"70605040\",\r\n  \"nombre\": \"Carlos\",\r\n  \"apellido\": \"Mendoza\",\r\n  \"email\": \"carlos.mendoza@mail.com\",\r\n  \"telefono\": \"987654321\",\r\n  \"direccion\": \"Calle Los Claveles 456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/clientes",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "clientes"
+              ]
             }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Transferencia",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"cuentaOrigen\": \"111122223333\",\r\n  \"cuentaDestino\": \"444455556666\",\r\n  \"monto\": 150.00\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:8080/api/transacciones/transferencia",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "transacciones",
-            "transferencia"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Deposito",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/api/transacciones/deposito",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "transacciones",
-            "deposito"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Retiro",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"cuenta\": \"444455556666\",\r\n  \"monto\": 50.00\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
+        {
+          "name": "Buscar cliente (id)",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:8080/api/transacciones/retiro",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "transacciones",
-            "retiro"
-          ]
+        {
+          "name": "Buscar cliente (dni)",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar cliente (admin)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"dni\": \"66554423\",\r\n    \"nombre\": \"Luis Alberto\",\r\n    \"apellido\": \"Solorzano Gutierrez\",\r\n    \"email\": \"luis.solorzano@gmail.com\",\r\n    \"telefono\": \"976444555\",\r\n    \"direccion\": \"Av. Lima 456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/27",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "27"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Desactivar cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"dni\": \"66554423\",\r\n    \"nombre\": \"Luis Alberto\",\r\n    \"apellido\": \"Solorzano Gutierrez\",\r\n    \"email\": \"luis.solorzano@gmail.com\",\r\n    \"telefono\": \"976444555\",\r\n    \"direccion\": \"Av. Lima 456\"\r\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/27",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "27"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cliente activa su cuenta",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"token\": \"560655e2-03d5-4da0-88de-3e6065565675\",\r\n  \"nuevaPassword\": \"clienteclave123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/activar-cuenta",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "activar-cuenta"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cliente (mi perfil)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3MDYwNTA0MCIsInVzZXJJZCI6Miwicm9sZSI6IlJPTEVfQ0xJRU5URSIsImlhdCI6MTc4MjU3Njg0NCwiZXhwIjoxNzgyNTgwNDQ0fQ.5qPVYgCS87ohujv12zHMzL7oQm8QBJfsnqGDQ_dsdZ9ZZMbxe03Jo2sM1MiKJ5Qn6pgkDcmbEYA562fF1y0tFA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/mi-perfil",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "mi-perfil"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
+    },
+    {
+      "name": "3. Cuenta",
+      "item": [
+        {
+          "name": "Listar cuentas",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Aperturar cuenta",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/cuentas",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "cuentas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar cuenta por id",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Cuenta por cliente (solo cliente)",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar cuenta por cliente (solo admin)",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar cuenta por numero cuenta",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Desactivar cuenta",
+          "request": {
+            "method": "PATCH",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar saldo cuenta (solo prueba)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/cuentas/1/saldo?monto=500",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "cuentas",
+                "1",
+                "saldo"
+              ],
+              "query": [
+                {
+                  "key": "monto",
+                  "value": "500"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Operaciones",
+      "item": [
+        {
+          "name": "Transferencia (admin/cliente)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cuentaOrigen\": \"111122223333\",\r\n  \"cuentaDestino\": \"444455556666\",\r\n  \"monto\": 150.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/transacciones/transferencia",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "transacciones",
+                "transferencia"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deposito (admin)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/transacciones/deposito",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "transacciones",
+                "deposito"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retiro (admin)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cuenta\": \"444455556666\",\r\n  \"monto\": 50.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/transacciones/retiro",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "transacciones",
+                "retiro"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "auth": {
@@ -316,6 +585,14 @@
   "variable": [
     {
       "key": "jwt_token",
+      "value": ""
+    },
+    {
+      "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "jwt_cliente",
       "value": ""
     }
   ]

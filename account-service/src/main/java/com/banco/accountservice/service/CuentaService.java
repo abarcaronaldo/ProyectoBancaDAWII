@@ -11,6 +11,7 @@ public interface CuentaService {
     List<CuentaResponse> listarCuentas();
     CuentaResponse obtenerPorId(Long id);
     List<CuentaResponse> obtenerCuentaUsuarioLogueado(Principal principal);
+    List<CuentaResponse> obtenerCuentasPorDniCliente(String dni);
     CuentaResponse obtenerPorNumeroCuenta(String numeroCuenta);
 
     //extra

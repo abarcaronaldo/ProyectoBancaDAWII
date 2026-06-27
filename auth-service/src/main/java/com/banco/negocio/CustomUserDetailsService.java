@@ -31,7 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new User(
                 usuario.getUsername(),
                 usuario.getPassword(),
-                true,
+                usuario.isActivo(),
                 true,
                 true,
                 true,

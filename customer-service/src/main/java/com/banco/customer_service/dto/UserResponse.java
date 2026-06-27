@@ -1,4 +1,4 @@
-package com.banco.dto;
+package com.banco.customer_service.dto;
 
 public record UserResponse(
         Long id,
